@@ -1,0 +1,43 @@
+questions = [
+    "1. 당신은 주변 사람들과 함께 있는 것을 즐깁니까? (예/아니오): ",
+    "2. 새로운 아이디어에 열린 편입니까? (예/아니오): ",
+    "3. 계획을 세우는 것을 좋아하십니까? (예/아니오): ",
+    "4. 감정에 따라 결정하는 편입니까? (예/아니오): ",
+    "5. 긴 여행보다는 짧은 여행을 선호하십니까? (예/아니오): ",
+    "6. 대부분의 사람들이 나를 이해하지 못한다고 생각하십니까? (예/아니오): ",
+    "7. 사람들과의 대화에서 논쟁을 즐기십니까? (예/아니오): ",
+    "8. 새로운 상황에 잘 적응하시나요? (예/아니오): ",
+    "9. 계획을 따르는 것보다 즉흥적으로 행동하시나요? (예/아니오): ",
+    "10. 사람들에게 동기부여를 잘 시키나요? (예/아니오): ",
+    # 나머지 질문들을 추가하세요
+]
+
+types = {
+    "E": "E",
+    "I": "I",
+    "S": "S",
+    "N": "N",
+    "T": "T",
+    "F": "F",
+    "J": "J",
+    "P": "P"
+}
+
+answers = []
+
+for question in questions:
+    answer = input(question)
+    while answer.lower() not in ['예', '아니오']:
+        print("올바른 형식으로 다시 입력해주세요.")
+        answer = input(question)
+    answers.append(answer.lower())
+
+result = ""
+for answer in answers:
+    result += "E" if answer == '예' else 'I'
+    result += "S" if answer == '예' else 'N'
+    result += "T" if answer == '예' else 'F'
+    result += "J" if answer == '예' else 'P'
+
+mbti_result = ''.join(result)
+print(f"당신의 MBTI은 {types[mbti_result[0]]}{types[mbti_result[1]]}{types[mbti_result[2]]}{types[mbti_result[3]]} 유형입니다.")
